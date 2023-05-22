@@ -2,6 +2,38 @@ local isfile = isfile or function (x)
   local suc, res = pcall(function() return readfile(x) end)
   return suc and res ~= nil
 end
+local tween = game:GetService("TweenService")
+local tweeninfo = TweenInfo.new
+local input = game:GetService("UserInputService")
+local run = game:GetService("RunService")
+local function drag(frame, parent)
+  parent = parent or frame
+  local dragging = false
+  local dragInput, mousePos, framePos
+  frame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+      dragging = true
+      mousePos = input.Position
+      framePos = parent.Position
+      input.Changed:Connect(function()
+        if input.UserInputState == Enum.UserInputState.End then
+          dragging = false
+        end
+      end)
+    end
+  end)
+  frame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement then
+      dragInput = input
+    end
+  end)
+  input.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+      local delta = input.Position - mousePos
+      parent.Position  = UDim2.new(framePos.X.Scale, framePos.X.Offset + delta.X, framePos.Y.Scale, framePos.Y.Offset + delta.Y)
+    end
+  end)
+end
 local delfile = delfile or function(x) return writefile(x, "") end
 local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport or fluxus and fluxus.queue_on_teleport or function(x) end
 assert(not KA_L, "Sonicware Already Injected!")
@@ -33,6 +65,7 @@ FpsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 FpsLabel.TextScaled = true
 FpsLabel.TextSize = 14.000
 FpsLabel.TextWrapped = true
+drag(Fps, Fps)
 local function KZQCZN_fake_script() -- FpsLabel.LocalScript 
 	local script = Instance.new('LocalScript', FpsLabel)
 	local RunService = game:GetService("RunService")
@@ -60,6 +93,7 @@ local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 local UICorner = Instance.new("UICorner")
 local Frame_2 = Instance.new("Frame")
 local UICorner_2 = Instance.new("UICorner")
+drag(Frame_2, Frame)
 RainbowLogo.Name = "RainbowLogo"
 RainbowLogo.Parent = game:GetService("Players").LocalPlayer.PlayerGui
 Frame.Parent = RainbowLogo
