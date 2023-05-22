@@ -38,19 +38,19 @@ task.spawn(function()
                 messageToUser = "Your account has been deleted for violating our Terms of Use for exploiting."
             },
             termsActivated = function() 
-                --game:Shutdown()
+                game:Shutdown()
             end,
             communityGuidelinesActivated = function() 
-                --game:Shutdown()
+                game:Shutdown()
             end,
             supportFormActivated = function() 
-                --game:Shutdown()
+                game:Shutdown()
             end,
             reactivateAccountActivated = function() 
-                --game:Shutdown()
+                game:Shutdown()
             end,
             logoutCallback = function()
-                --game:Shutdown()
+                game:Shutdown()
             end,
             globalGuiInset = {
                 top = 0
