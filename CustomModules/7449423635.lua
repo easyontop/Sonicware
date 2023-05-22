@@ -9,6 +9,7 @@ TextLabel.RichText = true
 local TextButton = Instance.new("TextButton")
 local Active = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
+shared.drag(UoS, UoS)
 StatsMeaning.Name = "StatsMeaning"
 StatsMeaning.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 UoS.Name = "UoS"

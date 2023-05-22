@@ -34,6 +34,7 @@ local function drag(frame, parent)
     end
   end)
 end
+shared.drag = drag
 local delfile = delfile or function(x) return writefile(x, "") end
 local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport or fluxus and fluxus.queue_on_teleport or function(x) end
 assert(not KA_L, "Sonicware Already Injected!")
