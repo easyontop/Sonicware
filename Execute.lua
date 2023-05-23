@@ -11,7 +11,7 @@ local function drag(frame, parent)
   local dragging = false
   local dragInput, mousePos, framePos
   frame.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch then
+    if input.UserInputType == input.MouseEnabled and Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch then
       dragging = true
       mousePos = input.Position
       framePos = parent.Position
@@ -23,7 +23,7 @@ local function drag(frame, parent)
     end
   end)
   frame.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement or Enum.UserInputType.Touch then
+    if input.UserInputType == input.MouseEnabled and Enum.UserInputType.MouseMovement or Enum.UserInputType.Touch then
       dragInput = input
     end
   end)
