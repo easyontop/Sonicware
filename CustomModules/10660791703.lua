@@ -25,3 +25,5 @@ ts:Create(TextLabel, tw, {
 ts:Create(TextLabel, TweenInfo.new(0.5), {
     TextTransparency = 0.000
 })
+wait(5)
+ScreenGui:Destroy()
