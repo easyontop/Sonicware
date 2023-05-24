@@ -1,7 +1,5 @@
-local suc, dat = pcall(function()
-  return game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/whitelist/main/list.json")
-end)
-repeat wait() until suc and dat ~= nil
+local dat = game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/whitelist/main/list.json")
+repeat wait() until dat ~= nil
 local sx = game:GetService("HttpService")
 local xs = sx:JSONDecode(dat)
 --print("✔ | Loaded!", "Data: "..tostring(xs))
