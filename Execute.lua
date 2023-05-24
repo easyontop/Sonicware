@@ -42,6 +42,7 @@ getgenv().KA_L = true
 local suc, res = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
 end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/Sonicware/main/Spec.lua"))()
 if not suc or res == "404: Not Found" then return end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
 local FPS = Instance.new("ScreenGui")
