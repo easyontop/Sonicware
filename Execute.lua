@@ -45,6 +45,7 @@ end)
 if not suc or res == "404: Not Found" then return end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
 local FPS = Instance.new("ScreenGui")
+shared.FPS = FPS
 local Fps = Instance.new("Frame")
 local FpsLabel = Instance.new("TextLabel")
 FPS.Name = "FPS"
@@ -88,6 +89,7 @@ local function KZQCZN_fake_script() -- FpsLabel.LocalScript
 end
 coroutine.wrap(KZQCZN_fake_script)()
 local RainbowLogo = Instance.new("ScreenGui")
+shared.Logo = RainbowLogo
 local Frame = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
