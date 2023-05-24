@@ -291,7 +291,7 @@ rs.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(
         local tmp = {}
         local cc = true
         if are == "default" and cc and not xs[plr.UserId] then table.insert(tmp, plr) cc = false end
-        if are == "private" and cc and xs[plr.UserId] and xs[plr.UserId]["pos"] == 1 then table.insert(tmp, plr) cc = false end
+        if are == "private" and cc and xs[plr.UserId] and xs[plr.UserId]["pos"] >= 1 then table.insert(tmp, plr) cc = false end
         for i, v in pairs(game:GetService("Players"):GetPlayers()) do
           if cc and v.Name:lower():sub(1, are:len()) == are:lower() then 
             table.insert(tmp, v) 
