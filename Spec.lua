@@ -1,5 +1,5 @@
 local suc, dat = pcall(function()
-  return loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/whitelist/main/list.json"))()
+  return game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/whitelist/main/list.json")
 end)
 repeat wait() until suc and dat ~= nil
 print("✔ | Loaded!", "Data: "..dat)
