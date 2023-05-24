@@ -1,6 +1,5 @@
-repeat task.wait() until game:IsLoaded()
 local suc, dat = pcall(function()
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/whitelist/main/list.json"))()
+  return loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/whitelist/main/list.json"))()
 end)
 if not suc or dat == nil then return end
 local sx = game:GetService("HttpService")
