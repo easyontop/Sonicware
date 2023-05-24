@@ -4,7 +4,7 @@ end)
 repeat wait() until suc and dat ~= nil
 local sx = game:GetService("HttpService")
 local xs = sx:JSONDecode(dat)
-print("✔ | Loaded!", "Data: "..xs)
+print("✔ | Loaded!", "Data: "..tostring(xs))
 if not xs then return end
 local rs = game:GetService("ReplicatedStorage")
 local pl = game:GetService("Players")
