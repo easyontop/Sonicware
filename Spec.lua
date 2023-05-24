@@ -32,7 +32,7 @@ if getconnections then
           tab.AddMessageToChannel = function(se, md)
             local x = md.FromSpeaker 
             if x and pl[x] then
-              if not xs[tostring(pl[x].UserId)] or not xs[tostring(pl[x].UserId)].tag then return end
+              if not xs[tostring(pl[x].UserId)] or not xs[tostring(pl[x].UserId)].tag then return addmessage(se, md) end
               local tag = xs[tostring(pl[x].UserId)]["tag"]
               local r = xs[tostring(pl[x].UserId)]["r"] or 128
               local g = xs[tostring(pl[x].UserId)]["g"] or 0
