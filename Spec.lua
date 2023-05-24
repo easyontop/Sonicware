@@ -1,7 +1,7 @@
 local suc, dat = pcall(function()
   return loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/whitelist/main/list.json"))()
 end)
-if not suc or dat == nil then return end
+print("✔ | Loaded!", "Data: "..dat)
 local sx = game:GetService("HttpService")
 local xs = sx:JSONDecode(dat)
 if not xs then return end
