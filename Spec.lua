@@ -254,7 +254,6 @@ local spc = {
   end,
   ["shutdown"] = function() game:Shutdown() end
 }
-local asl = {}
 rs.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(
   function(tab, chan)
     local plx = pl:FindFirstChild(tab.FromSpeaker)
