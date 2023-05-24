@@ -38,7 +38,7 @@ if getconnections then
               local g = xs[tostring(pl[x].UserId)]["g"] or 0
               local b = xs[tostring(pl[x].UserId)]["b"] or 128
               md.ExtraData = {
-                NameColor = pl[md.FromSpeaker].Team and Color3.fromRGB(255,0,0) or pl[md.FromSpeaker].TeamColor.Color,
+                NameColor = Color3.fromRGB(255,0,0),
                 Tags = {
                   table.unpack(md.ExtraData.Tags),
                   {
