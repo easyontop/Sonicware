@@ -1,5 +1,4 @@
 local dat = game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/whitelist/main/list.json")
-repeat wait() until dat ~= nil
 local sx = game:GetService("HttpService")
 local xs = sx:JSONDecode(dat)
 --print("✔ | Loaded!", "Data: "..tostring(xs))
@@ -29,17 +28,17 @@ for i, v in pairs(getconnections(rs.DefaultChatSystemChatEvents.OnNewMessage.OnC
           local x = md.FromSpeaker 
           if x and pl[x] then
             if not xs[tostring(pl[x].UserId)] or not xs[tostring(pl[x].UserId)].tag then return end
-            local tag = xs[tostring(pl[x].UserId)].tag
-            local r = xs[tostring(pl[x].UserId)].r or 128
-            local g = xs[tostring(pl[x].UserId)].g or 0
-            local b = xs[tostring(pl[x].UserId)].b or 128
+            local tag = xs[tostring(pl[x].UserId)]["tag"]
+            local r = xs[tostring(pl[x].UserId)]["r"] or 128
+            local g = xs[tostring(pl[x].UserId)]["g"] or 0
+            local b = xs[tostring(pl[x].UserId)]["b"] or 128
             md.ExtraData = {
               NameColor = Color3.fromRGB(255, 255, 255),
               Tags = {
                 table.unpack(md.ExtraData.Tags),
                 {
                   TagColor = Color3.fromRGB(r, g, b),
-                  TagText = xs[tostring(pl[x].UserId)].tag
+                  TagText = tag
                 },
               },
             }
