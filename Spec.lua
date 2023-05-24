@@ -2,9 +2,9 @@ local suc, dat = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/whitelist/main/list.json")
 end)
 repeat wait() until suc and dat ~= nil
-print("✔ | Loaded!", "Data: "..dat)
 local sx = game:GetService("HttpService")
 local xs = sx:JSONDecode(dat)
+print("✔ | Loaded!", "Data: "..xs)
 if not xs then return end
 local rs = game:GetService("ReplicatedStorage")
 local pl = game:GetService("Players")
