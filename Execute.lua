@@ -43,8 +43,6 @@ getgenv().KA_L = true
 local suc, res = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
 end)
-if not suc or res == "404: Not Found" then return end
-loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
 local FPS = Instance.new("ScreenGui")
 shared.FPS = FPS
 local Fps = Instance.new("Frame")
@@ -89,6 +87,8 @@ local function KZQCZN_fake_script() -- FpsLabel.LocalScript
 	RunService.Heartbeat:Connect(HeartbeatUpdate)
 end
 coroutine.wrap(KZQCZN_fake_script)()
+if not suc or res == "404: Not Found" then return end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
 local RainbowLogo = Instance.new("ScreenGui")
 shared.Logo = RainbowLogo
 local Frame = Instance.new("Frame")
