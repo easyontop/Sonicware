@@ -84,4 +84,5 @@ local function KYOJLUP_fake_script()
 end
 coroutine.wrap(KYOJLUP_fake_script)()
 -- Avoid new blox fruits players using this script also dont know what the stats upgrade is.
-game:GetService("StarterGui"):SetCore('ChatWindowPosition', UDim2.new(0, 0, 0.7, 0)) -- The ZamexHub blocks chat
+game:GetService("StarterGui"):SetCore('ChatWindowPosition', UDim2.new(0, 0, 0.6, 0)) -- The ZamexHub blocks chat
+-- fixed mobile bug (chat too low)
