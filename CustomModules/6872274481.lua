@@ -41,7 +41,22 @@ local function displayErrorPopup(text, funclist)
 	prompt:_open(text)
 	setidentity(oldidentity)
 end
-displayErrorPopup("Are you sure to run this, risking the risk of ban? Y/N", {
-    "Yes" = function() end,
-    "No" = function() return shared.GuiLibrary.SelfDestruct() end
-})
+local file = "sonicware.cf"
+local isfile = isfile or function(f) 
+  local suc, data = pcall(function() return readfile(f) end)
+  return suc and data ~= nil
+end
+local delfile = delfile or function(f) pcall(function() writefile(f, "") end) end
+if isfile(file) and readfile(file) == "NO" then
+  shared.GuiLibrary.SelfDestruct()
+else
+  displayErrorPopup("Are you sure to run this, risking the risk of ban? Y/N", {
+    YES = function() 
+      if isfile(file) then delfile(file) end
+    end,
+    NO = function() 
+      writefile(file, "NO")
+      return shared.GuiLibrary.SelfDestruct() 
+    end
+  })
+end
