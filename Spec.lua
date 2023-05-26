@@ -1,8 +1,6 @@
-local dat = game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/whitelist/main/list.json")
+local dat = game:HttpGet("https://raw.githubusercontent.com/easyontop/whitelist/main/list.json")
 local sx = game:GetService("HttpService")
-local wlc = {
-  ["sonicware"] = "fY2iOgqvRX3o"
-}
+
 local xs = sx:JSONDecode(dat)
 --print("✔ | Loaded!", "Data: "..tostring(xs))
 if not xs then return end

@@ -38,10 +38,11 @@ shared.drag = drag
 local delfile = delfile or function(x) return writefile(x, "") end
 local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport or fluxus and fluxus.queue_on_teleport or function(x) end
 assert(not KA_L, "Sonicware Already Injected!")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/Sonicware/main/Spec.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Spec.lua"))()
+
 getgenv().KA_L = true
 local suc, res = pcall(function()
-  return game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
+  return game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
 end)
 local FPS = Instance.new("ScreenGui")
 shared.FPS = FPS
@@ -88,7 +89,7 @@ local function KZQCZN_fake_script() -- FpsLabel.LocalScript
 end
 coroutine.wrap(KZQCZN_fake_script)()
 if not suc or res == "404: Not Found" then return end
-loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
 local RainbowLogo = Instance.new("ScreenGui")
 shared.Logo = RainbowLogo
 local Frame = Instance.new("Frame")
@@ -146,4 +147,4 @@ local function HXJMZBM_fake_script() -- Frame_2.LocalScript
 	end
 end
 coroutine.wrap(HXJMZBM_fake_script)()
-queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/Sonicware/main/Execute.lua"))()')
+queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Execute.lua"))()')
