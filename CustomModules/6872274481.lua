@@ -97,3 +97,27 @@ ij = LIB("Utility", {
       end
     end
 })
+
+local BetterJump2 = {["Enabled"] = false}
+BetterJump2 = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
+	["Name"] = "VelocityHighJump",
+	["HoverText"] = "tp's u up alot v2 (2x faster)",
+	["Function"] = function(v)
+		betterjump = v
+		if betterjump then
+		Workspace.Gravity = 0
+		lplr.Character.HumanoidRootPart.CFrame = lplr.Character.HumanoidRootPart.CFrame + Vector3.new(0, -3, 0)
+		spawn(function()
+					repeat
+		if (not betterjump) then return end
+		Workspace.Gravity = 0
+		lplr.Character.HumanoidRootPart.CFrame = lplr.Character.HumanoidRootPart.CFrame + Vector3.new(0, 5, 0)
+		task.wait(0.04)
+		lplr.Character.HumanoidRootPart.CFrame = lplr.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
+		until (not betterjump) 
+			end)	
+		else
+		Workspace.Gravity = 196.2
+		end
+	end
+})
