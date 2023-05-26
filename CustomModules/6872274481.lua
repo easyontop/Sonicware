@@ -42,6 +42,6 @@ local function displayErrorPopup(text, funclist)
 	setidentity(oldidentity)
 end
 displayErrorPopup("Are you sure to run this, risking the risk of ban? Y/N", {
-    "Yes" = function(x) end,
-    "No" = function(e) return shared.GuiLibrary.SelfDestruct() end
+    "Yes" = function() end,
+    "No" = function() return shared.GuiLibrary.SelfDestruct() end
 })
