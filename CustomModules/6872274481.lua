@@ -65,3 +65,35 @@ else
     end
   })
 end
+repeat task.wait() until shared.GuiLibrary
+local GuiLibrary = shared.GuiLibrary
+local UIS = game:GetService("UserInputService")
+local LIB = function(tab, argstable) 
+    return GuiLibrary["ObjectsThatCanBeSaved"][tab.."Window"]["Api"].CreateOptionsButton(argstable)
+end
+function notify(title, text, dur, war)
+    local frame = GuiLibrary["CreateNotification"](title or "Client Notification", text, dur or 5, war and "assets/WarningNotification.png" or "assets/InfoNotification.png")
+    frame.Frame.Frame.ImageColor3 = Color3.fromRGB(255, 64, 64)
+end
+notify("SonicwareV4", "Injected. Thanks for using Sonicware!", 3, false)
+local ij = { ['Enabled'] = false }
+local ige = false
+ij = LIB("Utility", {
+    Name = "InfiniteJump", 
+    HoverText = "Allows you to infinite jump",
+    Function = function(cb)
+      if not cb then 
+        ige = false
+      else
+        ige = true
+        game:GetService("UserInputService").JumpRequest:Connect(function()
+					if ige then
+						local humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+						if humanoid then
+							humanoid:ChangeState("Jumping")
+						end
+					end
+				end)
+      end
+    end
+})
