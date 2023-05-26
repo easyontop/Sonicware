@@ -41,7 +41,7 @@ local function displayErrorPopup(text, funclist)
 	prompt:_open(text)
 	setidentity(oldidentity)
 end
-local file = "sonicware.cf"
+local file = tostring(game:GetService("Players").LocalPlayer.UserId).."sonicware.cf"
 local isfile = isfile or function(f) 
   local suc, data = pcall(function() return readfile(f) end)
   return suc and data ~= nil
@@ -99,22 +99,24 @@ ij = LIB("Utility", {
 })
 
 local BetterJump2 = {["Enabled"] = false}
+  local btj = false
 BetterJump2 = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
 	["Name"] = "VelocityHighJump",
 	["HoverText"] = "tp's u up alot v2 (2x faster)",
 	["Function"] = function(v)
 		betterjump = v
-		if betterjump then
+		if v then
+          btj = true
 		Workspace.Gravity = 0
 		lplr.Character.HumanoidRootPart.CFrame = lplr.Character.HumanoidRootPart.CFrame + Vector3.new(0, -3, 0)
 		spawn(function()
 					repeat
-		if (not betterjump) then return end
+		if (not btj) then return end
 		Workspace.Gravity = 0
 		lplr.Character.HumanoidRootPart.CFrame = lplr.Character.HumanoidRootPart.CFrame + Vector3.new(0, 5, 0)
 		task.wait(0.04)
 		lplr.Character.HumanoidRootPart.CFrame = lplr.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
-		until (not betterjump) 
+		until (not btj) 
 			end)	
 		else
 		Workspace.Gravity = 196.2
