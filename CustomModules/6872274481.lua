@@ -50,9 +50,14 @@ local delfile = delfile or function(f) pcall(function() writefile(f, "") end) en
 if isfile(file) and readfile(file) == "NO" then
   shared.GuiLibrary.SelfDestruct()
 else
+  if isfile(file) and readfile(file) == "YES" then return end
   displayErrorPopup("Are you sure to run this, risking the risk of ban? Y/N", {
     YES = function() 
-      if isfile(file) then delfile(file) end
+      if isfile(file) then 
+        delfile(file) 
+      else
+        writefile(file, "YES")
+      end
     end,
     NO = function() 
       writefile(file, "NO")
