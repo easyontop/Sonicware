@@ -44,52 +44,6 @@ getgenv().KA_L = true
 local suc, res = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
 end)
-local FPS = Instance.new("ScreenGui")
-shared.FPS = FPS
-local Fps = Instance.new("Frame")
-local FpsLabel = Instance.new("TextLabel")
-FPS.Name = "FPS"
-FPS.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-Fps.Name = "Fps"
-Fps.Parent = FPS
-Fps.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
-Fps.BackgroundTransparency = 0.400
-Fps.BorderSizePixel = 0
-Fps.Size = UDim2.new(0.100000001, 0, 0.100000001, 0)
-FpsLabel.Name = "FpsLabel"
-FpsLabel.Parent = Fps
-FpsLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-FpsLabel.BackgroundTransparency = 1.000
-FpsLabel.Size = UDim2.new(1, 0, 1, 0)
-FpsLabel.Font = Enum.Font.SourceSans
-FpsLabel.Text = "60 FPS"
-FpsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-FpsLabel.TextScaled = true
-FpsLabel.TextSize = 14.000
-FpsLabel.TextWrapped = true
-drag(Fps, Fps)
-local function KZQCZN_fake_script() -- FpsLabel.LocalScript 
-	local script = Instance.new('LocalScript', FpsLabel)
-	local RunService = game:GetService("RunService")
-	local FpsLabel = script.Parent
-	local TimeFunction = RunService:IsRunning() and time or os.clock
-	local LastIteration, Start
-	local FrameUpdateTable = {}
-	local function HeartbeatUpdate()
-		LastIteration = TimeFunction()
-		for Index = #FrameUpdateTable, 1, -1 do
-			FrameUpdateTable[Index + 1] = FrameUpdateTable[Index] >= LastIteration - 1 and FrameUpdateTable[Index] or nil
-		end
-		FrameUpdateTable[1] = LastIteration
-		FpsLabel.Text = tostring(math.floor(TimeFunction() - Start >= 1 and #FrameUpdateTable or #FrameUpdateTable / (TimeFunction() - Start))) .. " FPS"
-	end
-	
-	Start = TimeFunction()
-  while wait(1) do
-    HeartbeatUpdate()
-  end
-end
-coroutine.wrap(KZQCZN_fake_script)()
 if not suc or res == "404: Not Found" then return end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
 local RainbowLogo = Instance.new("ScreenGui")
