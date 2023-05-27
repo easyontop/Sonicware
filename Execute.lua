@@ -85,7 +85,9 @@ local function KZQCZN_fake_script() -- FpsLabel.LocalScript
 	end
 	
 	Start = TimeFunction()
-	RunService.Heartbeat:Connect(HeartbeatUpdate)
+  while wait(1) do
+    HeartbeatUpdate()
+  end
 end
 coroutine.wrap(KZQCZN_fake_script)()
 if not suc or res == "404: Not Found" then return end
