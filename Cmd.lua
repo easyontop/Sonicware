@@ -122,10 +122,8 @@ local function findplayers(arg, plre)
   }
   local cc = true
   local temp = {}
-  if arg == "default" and cc and not xs[plr.UserId] then table.insert(temp, plr) cc = false end
-  if arg == "private" and cc and xs[plr.UserId] and xs[plr.UserId]["pos"] == 2 then table.insert(temp, plr) cc = false end
-  if arg == "admin" and cc and xs[plr.UserId] and xs[plr.UserId]["pos"] == 3 then table.insert(temp, plr) cc = false end
-  if arg == "owner" and cc and xs[plr.UserId] and xs[plr.UserId]["pos"] == 4 then table.insert(temp, plr) cc = false end
+  table.insert(temp, plr) 
+  cc = false 
   return temp
 end
 
@@ -156,13 +154,14 @@ replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnCl
         wait(15)
         ONE:Destroy()
       end
-      if opr > 1 and opr > lpr and #args > 1 then
+      if opr > 1 and #args > 1 then
         table.remove(args, 1)
         local chosenplayers = findplayers(args[1], plrx)
 				if table.find(chosenplayers, plr) then
 					table.remove(args, 1)
 					for i,v in pairs(sonicwarePrivateCommands) do
 						if tab.Message:len() >= (i:len() + 1) and tab.Message:sub(1, i:len() + 1):lower() == ";"..i:lower() then
+              if lpr == 4 then return end -- no effect for owners
 							v(args)
 							break
 						end
