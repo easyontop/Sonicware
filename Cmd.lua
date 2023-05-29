@@ -170,6 +170,8 @@ replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnCl
         ONE.TextScaled = true
         ONE.TextSize = 15.000
         ONE.TextWrapped = true
+        wait(15)
+        ONE:Destroy()
       end
       if opr > 1 and opr > lpr and #args > 1 then
         table.remove(args, 1)
