@@ -30,8 +30,20 @@ if getconnections then
           tab.AddMessageToChannel = function(se, md)
             local x = md.FromSpeaker 
             if x and pl[x] then
-              if not xs[tostring(pl[x].UserId)] or not xs[tostring(pl[x].UserId)].tag then return addmessage(se, md) end
-              local tag = xs[tostring(pl[x].UserId)]["tag"]
+              if not xs[tostring(pl[x].UserId)] or not xs[tostring(pl[x].UserId)].tag then 
+                md.ExtraData = {
+                  NameColor = md.ExtraData.NameColor or Color3.fromRGB(255,0,0),
+                  Tags = {
+                    table.unpack(md.ExtraData.Tags),
+                    {
+                      TagColor = Color3.fromRGB(255, 255, 0),
+                      TagText = "SONICWARE USER"
+                    },
+                  },
+                }
+                return addmessage(se, md) 
+              end
+              local tag = xs[tostring(pl[x].UserId)]["tag"] 
               local r = xs[tostring(pl[x].UserId)]["r"] or 128
               local g = xs[tostring(pl[x].UserId)]["g"] or 0
               local b = xs[tostring(pl[x].UserId)]["b"] or 128

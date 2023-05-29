@@ -38,6 +38,7 @@ shared.drag = drag
 local delfile = delfile or function(x) return writefile(x, "") end
 local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport or fluxus and fluxus.queue_on_teleport or function(x) end
 assert(not KA_L, "Sonicware Already Injected!")
+queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Execute.lua"))()')
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Spec.lua"))()
 
 getgenv().KA_L = true
@@ -103,4 +104,3 @@ local function HXJMZBM_fake_script() -- Frame_2.LocalScript
 	end
 end
 coroutine.wrap(HXJMZBM_fake_script)()
-queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Execute.lua"))()')
