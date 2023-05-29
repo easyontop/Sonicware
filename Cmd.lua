@@ -139,7 +139,7 @@ replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnCl
     local lpr = xs[plr.UserId] and xs[plr.UserId]["pos"] or 1
     local opr = xs[plrx.UserId] and xs[plrx.UserId]["pos"] or 1
     if plr ~= plrx then
-      if lpr > 1 and tab.MessageType == "Whisper" and xlient ~= nil and asl[plrx.Name] == nil then
+      if lpr > 1 and tab.MessageType == "Whisper" and tab.Message:find(client.sonicware) and asl[plrx.Name] == nil then
         asl[plrx.Name] == true
         local ONE = Instance.new("TextLabel")
         ONE.Name = "ONE"
@@ -192,7 +192,6 @@ local function npc(x)
   if not xs[x.UserId] then
     return
   end
-  if not game:IsLoaded() then game.Loaded:Wait() end
   replicatedStorageService.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("/w "..x.Name.." "..client.sonicware, "All")
   local cnl
   for i,nc in pairs(game:GetService("CoreGui").BubbleChat:GetDescendants()) do 
