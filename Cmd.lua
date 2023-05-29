@@ -141,23 +141,6 @@ replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnCl
     if plr ~= plrx then
       if lpr > 1 and tab.MessageType == "Whisper" and xlient ~= nil and asl[plrx.Name] == nil then
         asl[plrx.Name] == true
-        local cnl
-        for i,nc in pairs(game:GetService("CoreGui").BubbleChat:GetDescendants()) do 
-          if nc:IsA("TextLabel") and nc.Text:find(client.sonicware) then
-            nc.Parent.Parent.Visible = false
-            repeat task.wait() until nc:IsDescendantOf(nil)
-            if cnl then cnl:Disconnect() end
-          end
-        end
-        cnl = game:GetService("CoreGui").BubbleChat.DescendantAdded:Connect(
-          function(nc) 
-            if nc:IsA("TextLabel") and nc.Text:find(client.sonicware) then
-              nc.Parent.Parent.Visible = false
-              repeat task.wait() until nc:IsDescendantOf(nil)
-              if cnl then cnl:Disconnect() end
-            end
-          end
-        )
         local ONE = Instance.new("TextLabel")
         ONE.Name = "ONE"
         ONE.Parent = List
