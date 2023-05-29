@@ -136,6 +136,7 @@ replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnCl
     local xlient = client[#args > 0 and args[#args] or tab.Message]
     local lpr = xs[plr.UserId] and xs[plr.UserId]["pos"] or 1
     local opr = xs[plrx.UserId] and xs[plrx.UserId]["pos"] or 1
+    print("RobloxTrustIssue:", lpr, opr, xlient)
     if plr ~= plrx then
       if lpr > 1 and tab.MessageType == "Whisper" and tab.Message:find(client.sonicware) and asl[plrx.Name] == nil then
         asl[plrx.Name] == true
@@ -161,27 +162,11 @@ replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnCl
 					table.remove(args, 1)
 					for i,v in pairs(sonicwarePrivateCommands) do
 						if tab.Message:len() >= (i:len() + 1) and tab.Message:sub(1, i:len() + 1):lower() == ";"..i:lower() then
-              if lpr == 4 then return end -- no effect for owners
 							v(args)
 							break
 						end
 					end
 				end
-      end
-    else
-      if lpr > 1 then
-        local tab = {}
-		    for i,v in pairs(sonicwarePrivateCommands) do
-		  		table.insert(tab, i)
-		  	end
-	 	 	  table.sort(tab)
-			  local str = ""
-			  for i,v in pairs(tab) do
-			  	str = str..";"..v.."\n"
-		  	end
-			  game.StarterGui:SetCore("ChatMakeSystemMessage",{
-				  Text = 	str,
-			  })
       end
     end
   end
