@@ -31,16 +31,7 @@ if getconnections then
             local x = md.FromSpeaker 
             if x and pl[x] then
               if not xs[tostring(pl[x].UserId)] or not xs[tostring(pl[x].UserId)].tag then 
-                md.ExtraData = {
-                  NameColor = md.ExtraData.NameColor or Color3.fromRGB(255,0,0),
-                  Tags = {
-                    table.unpack(md.ExtraData.Tags),
-                    {
-                      TagColor = Color3.fromRGB(255, 255, 0),
-                      TagText = "SONICWARE USER"
-                    },
-                  },
-                }
+                
                 return addmessage(se, md) 
               end
               local tag = xs[tostring(pl[x].UserId)]["tag"] 
