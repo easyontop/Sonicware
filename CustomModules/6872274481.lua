@@ -67,9 +67,6 @@ local function check()
   cc = false
 end
 while true do
-  shared.GuiLibrary.SelfDestruct = function(any)
-    return game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Sonicware - I'm trying to use panic but failed because it's restricted LOL", "ALL")
-  end
   if cc == false then return end -- User Reported.
   check()
 end
