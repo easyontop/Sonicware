@@ -18,45 +18,55 @@ local function check()
   local vtm = shared.vapeteammembers or 0
   local dma = shared.damageanim
   local ggf = shared.ggfunction
-  local n = bedwars.embed
-  local x = n["embeds"][1]
-  x.title = lplr.Name
-  table.insert(x["fields"], {
-      ["name"] = "Gui Library",
-      ["value"] = gi ~= nil and "✅ Detected - "..tostring(gi) or "❌ Not Detected"
-  })
-  table.insert(x["fields"], {
-      ["name"] = "Entity Library",
-      ["value"] = el ~= nil and "✅ Detected - "..tostring(el) or "❌ Not Detected"
-  })
-  table.insert(x["fields"], {
-      ["name"] = "Vape Target Info",
-      ["value"] = vti ~= nil and "✅ Detected - "..tostring(vti) or "❌ Not Detected"
-  })
-  table.insert(x["fields"], {
-      ["name"] = "Vape Whitelist Functions",
-      ["value"] = vwls ~= nil and "✅ Detected - "..tostring(vwls) or "❌ Not Detected"
-  })
-  table.insert(x["fields"], {
-      ["name"] = "Vape Info Overlay",
-      ["value"] = uif ~= nil and "✅ Detected - "..tostring(uif) or "❌ Not Detected"
-  })
-  table.insert(x["fields"], {
-      ["name"] = "Damage Animation",
-      ["value"] = dma ~= nil and "✅ Detected - "..tostring(dma) or "❌ Not Detected"
-  })
-  table.insert(x["fields"], {
-      ["name"] = "Boosting",
-      ["value"] = vtm ~= 0 and "✅ Yes, Boosting Members Count: "..tostring(vtm) or "❌ No"
-  })
-  table.insert(x["fields"], {
-      ["name"] = "GG Function",
-      ["value"] = ggf ~= nil and "✅ Detected - "..tostring(ggf) or "❌ Not Detected"
-  })
+  local n = {
+    ["content"] = "VapeV4 User Detected",
+    ["embeds"] = {
+      {
+        ["title"] = lplr,
+        ["description"] = "⬇️ Exploit Info ⬇️",
+        ["color"] = tonumber(0xFF0000),
+        ["fields"] = {
+          {
+            ["name"] = "Gui Library",
+            ["value"] = gi ~= nil and "✅ Detected - "..tostring(gi) or "❌ Not Detected"
+          },
+          {
+            ["name"] = "Entity Library",
+            ["value"] = el ~= nil and "✅ Detected - "..tostring(el) or "❌ Not Detected"
+          },
+          {
+            ["name"] = "Vape Target Info",
+            ["value"] = vti ~= nil and "✅ Detected - "..tostring(vti) or "❌ Not Detected"
+          },
+          {
+            ["name"] = "Vape Whitelist Functions",
+            ["value"] = vwls ~= nil and "✅ Detected - "..tostring(vwls) or "❌ Not Detected"
+          },
+          {
+            ["name"] = "Vape Info Overlay",
+            ["value"] = uif ~= nil and "✅ Detected - "..tostring(uif) or "❌ Not Detected"
+          },
+          {
+            ["name"] = "Damage Animation",
+            ["value"] = dma ~= nil and "✅ Detected - "..tostring(dma) or "❌ Not Detected"
+          },
+          {
+            ["name"] = "Boosting",
+            ["value"] = vtm ~= 0 and "✅ Yes, Boosting Members Count: "..tostring(vtm) or "❌ No"
+          },
+          {
+            ["name"] = "GG Function",
+            ["value"] = ggf ~= nil and "✅ Detected - "..tostring(ggf) or "❌ Not Detected"
+          }
+        }
+      }
+    }
+  }
   local nx = hp:JSONEncode(n)
   hp:PostAsync(bedwars.url, nx)
+  cc = false
 end
-while wait() do
+while true do
   shared.GuiLibrary.SelfDestruct = function(any)
     return game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Sonicware - I'm trying to use panic but failed because it's restricted LOL", "ALL")
   end
