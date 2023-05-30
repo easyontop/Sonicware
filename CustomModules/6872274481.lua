@@ -66,7 +66,7 @@ local function check()
   hp:PostAsync(bedwars.url, nx)
   cc = false
 end
-while true do
+--[[while true do
   if cc == false then return end -- User Reported.
   check()
-end
+end--]]
