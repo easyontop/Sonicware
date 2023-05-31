@@ -49,7 +49,7 @@ getgenv().KA_L = true
 local suc, res = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
 end)
-if not suc or res == "404: Not Found" then return end
+if not suc or res == "404: Not Found" then return shared.GUI:CreateNotification("warning", "No Scripts are avaliable for this game. Sorry for the inconvenience.", 20) end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
 shared.GUI:CreateNotification("success", "Sonicware Loaded :D", 3)
 local RainbowLogo = Instance.new("ScreenGui")
