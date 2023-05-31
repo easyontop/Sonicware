@@ -430,4 +430,4 @@ bar.ZIndex = 3
     error("InvalidModeError: Invalid Mode Provided")
   end
 end
-return lib
+shared.GUI = lib
