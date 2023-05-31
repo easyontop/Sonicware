@@ -41,6 +41,8 @@ assert(not KA_L, "Sonicware Already Injected!")
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Execute.lua"))()')
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Spec.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Cmd.lua"))()
+shared.GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/GUI.lua"))()
+shared.GUI:CreateNotification("info", "Sonicware Loaded :D", 3)
 getgenv().KA_L = true
 local suc, res = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
