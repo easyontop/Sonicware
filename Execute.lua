@@ -1,3 +1,4 @@
+repeat task.wait() until game:IsLoaded
 script.Parent = game:GetService("CoreGui")
 local NotificaitonSystem = Instance.new("ScreenGui")
 NotificationSystem.Parent = game:GetService("CoreGui") -- Prevent the game delete this using scripts
