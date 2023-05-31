@@ -1,7 +1,9 @@
 local lib = {}
-local NotificaitonSystem = Instance.new("ScreenGui")
-NotificationSystem.Parent = game:GetService("CoreGui") -- Prevent the game delete this using scripts
-NotificationSystem.Enabled = true
+local ch = game:GetService("CoreGui")
+local NotificationSystem = Instance.new("ScreenGui", ch)
+NotificationSystem.Name = "TestMenu"
+--print(NotificationSystem)
+--NotificaitonSystem.Parent = ch
 local list = Instance.new("Frame")
 local tweenService = game:GetService("TweenService")
 local tweenInfo = TweenInfo.new
@@ -10,9 +12,9 @@ list.Name = "list"
 list.AnchorPoint = Vector2.new(0.5, 0.5)
 list.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 list.BackgroundTransparency = 1
+list.BorderSizePixel = 0
 list.Position = UDim2.new(0.911, 0, 0.522, 0)
 list.Size = UDim2.new(0.178, 0, 0.869, 0)
-list.ZIndex = 9e9
 list.Visible = true
 local ls = Instance.new("UIListLayout")
 ls.Name = "L"
@@ -20,7 +22,7 @@ ls.Parent = list
 ls.HorizontalAlignment = Enum.HorizontalAlignment.Right
 ls.SortOrder = Enum.SortOrder.LayoutOrder
 ls.Padding = UDim.new(0, 5)
-local function lib:CreateNotification(typw, message, duration)
+function lib:CreateNotification(typw, message, duration)
   if not table.find({ "error", "success", "info", "warning" }, typw:lower()) then return error("InvalidModeError: Invalid Mode Provided") end
   duration = tonumber(duration) or 5
   message = message or "Sonicware Loaded!"
@@ -392,12 +394,12 @@ local function lib:CreateNotification(typw, message, duration)
 		bar.ZIndex = 3
     Notification = Warning
   end
-  Notification.Header.Text = Text
-	Notification.Size = UDim2.new(0, 0,0.087, 0)
-	Notification.Filler.Size = UDim2.new(1, 0,1, 0)
-  local n = tweenInfo(0.2, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, false, 0)
-  local e = tweenInfo(0.3, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, false, 0)
-  local x = tweenInfo(duration, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, false, 0)
+  Notification.Header.Text = message
+  Notification.Size = UDim2.new(0, 0,0.087, 0)
+  Notification.Filler.Size = UDim2.new(1, 0,1, 0)
+  local n = tweenInfo(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 1, false, 0)
+  local e = tweenInfo(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 1, false, 0)
+  local x = tweenInfo(duration, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 1, false, 0)
   tweenService:Create(Notification, n, {
       Size = UDim2.new(1, 0,0.087, 0)
   }):Play()
