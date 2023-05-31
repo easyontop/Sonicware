@@ -1,5 +1,4 @@
 local lib = {}
-
 local NotificaitonSystem = Instance.new("ScreenGui")
 NotificationSystem.Parent = game:GetService("CoreGui") -- Prevent the game delete this using scripts
 NotificationSystem.Enabled = true
@@ -19,7 +18,7 @@ ls.Parent = list
 ls.HorizontalAlignment = Enum.HorizontalAlignment.Right
 ls.SortOrder = Enum.SortOrder.LayoutOrder
 ls.Padding = UDim.new(0, 5)
-local function lib:CreateNotification(typw, message, duration)
+function lib:CreateNotification(typw, message, duration)
   if not table.find({ "error", "success", "info", "warning" }, typw:lower()) then return error("InvalidModeError: Invalid Mode Provided") end
   duration = duration or 5
   message = message or "Sonicware Loaded!"
