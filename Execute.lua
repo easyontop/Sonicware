@@ -1,3 +1,4 @@
+script.Parent = game:GetService("CoreGui")
 local NotificaitonSystem = Instance.new("ScreenGui")
 NotificationSystem.Parent = game:GetService("CoreGui") -- Prevent the game delete this using scripts
 NotificationSystem.Enabled = true
