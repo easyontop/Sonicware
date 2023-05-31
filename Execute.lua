@@ -44,13 +44,13 @@ queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/ea
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Spec.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Cmd.lua"))()
 local txe = loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Gui.lua"))()
-shared.GUI:CreateNotification("success", "Sonicware Loaded :D", 3)
 getgenv().KA_L = true
 local suc, res = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
 end)
 if not suc or res == "404: Not Found" then return end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
+shared.GUI:CreateNotification("success", "Sonicware Loaded :D", 3)
 local RainbowLogo = Instance.new("ScreenGui")
 shared.Logo = RainbowLogo
 local Frame = Instance.new("Frame")
