@@ -1,7 +1,8 @@
 -- Blox Fruits
 repeat task.wait() until game:IsLoaded()
-
+shared.GUI:CreateNotification("success", "Loading Zamex Hub - Sonicware", 5)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))() -- Auto Load Modules
+--[[
 local StatsMeaning = Instance.new("ScreenGui")
 local UoS = Instance.new("Frame")
 local UxCorn = Instance.new("UICorner")
@@ -86,3 +87,4 @@ coroutine.wrap(KYOJLUP_fake_script)()
 -- Avoid new blox fruits players using this script also dont know what the stats upgrade is.
 game:GetService("StarterGui"):SetCore('ChatWindowPosition', UDim2.new(0, 0, 0.6, 0)) -- The ZamexHub blocks chat
 -- fixed mobile bug (chat too low)
+--]]
