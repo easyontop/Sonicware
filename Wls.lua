@@ -28,6 +28,3 @@ local gay = game:GetService("HttpService")
 local nolife = gay:JSONDecode(bitch)
 Whitelist.table = nolife
 Whitelist.Loaded = true
-if nolife[tostring(lplr.UserId)] then
-  shared.GUI:CreateNotification("info", "Your Rank is: "..tostring(nolife[tostring(lplr.UserId)]["pos"])..". Enjoy your whitelist!")
-end
