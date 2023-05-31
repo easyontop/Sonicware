@@ -1,4 +1,4 @@
-repeat task.wait() until game:IsLoaded
+repeat task.wait() until game:IsLoaded()
 script.Parent = game:GetService("CoreGui")
 local NotificaitonSystem = Instance.new("ScreenGui")
 NotificationSystem.Parent = game:GetService("CoreGui") -- Prevent the game delete this using scripts
@@ -497,6 +497,7 @@ Frame.BackgroundColor3 = Color3.fromRGB(93, 93, 93)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.0478873253, 0, 0.142307699, 0)
 Frame.Size = UDim2.new(0.21877934, 0, 0.0519230776, 0)
+Frame.ZIndex = 9e9
 TextLabel.Parent = Frame
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
