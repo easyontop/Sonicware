@@ -44,9 +44,7 @@ queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/ea
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Spec.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Cmd.lua"))()
 local txe = loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Gui.lua"))()
-repeat wait() until txe and shared.GUI
-print("✔ GUI Loaded")
-shared.GUI:CreateNotification("info", "Sonicware Loaded :D", 3)
+shared.GUI:CreateNotification("success", "Sonicware Loaded :D", 3)
 getgenv().KA_L = true
 local suc, res = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
