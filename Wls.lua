@@ -28,3 +28,44 @@ local gay = game:GetService("HttpService")
 local nolife = gay:JSONDecode(bitch)
 Whitelist.table = nolife
 Whitelist.Loaded = true
+function Whitelist:CheckPlayerType(plr)
+  if not plr or not plr.UserId then return end
+  local pt = "DEFAULT"
+  local owner 
+  local private
+  if Whitelist.table[tostring(plr.UserId)] then
+    local oi = Whitelist.table[tostring(plr.UserId)]["pos"] or 2
+    owner = oi == 4
+    private = oi == 2 or oi == 3
+  end
+  return owner and "SONICWARE OWNER" or private and "SONICWARE PRIVATE" or pt
+end
+
+function Whitelist:CheckWhitelisted(plr)
+  local poe = Whitelist:CheckPlayerType(plr)
+  if poe == "DEFAULT" then
+    return false
+  else
+    return true
+  end
+end
+
+function Whitelist:CheckLocalWhitelisted()
+  local poe = Whitelist:CheckPlayerType(lplr)
+  if poe == "DEFAULT" then
+    return false
+  else
+    return true
+  end
+end
+
+function Whitelist:IsSpecialInGame()
+  for i, v in pairs(playersService:GetPlayers()) do
+    if Whitelist:CheckWhitelisted(v) == true then
+      return true
+    end
+  end
+  return false
+end
+
+shared.snwls = Whitelist

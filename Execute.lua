@@ -45,6 +45,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/m
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Cmd.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Wls.lua"))()
 local txe = loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Gui.lua"))()
+if shared.snwls:CheckLocalWhitelisted() then
+  shared.GUI:CreateNotification("info", "Congratulations 🎊 You are whitelisted!")
+end
 getgenv().KA_L = true
 local suc, res = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
