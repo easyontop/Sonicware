@@ -42,7 +42,7 @@ local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport or 
 assert(not KA_L, "Sonicware Already Injected!")
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Execute.lua"))()')
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Spec.lua"))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Cmd.lua"))()
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Cmd.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Wls.lua"))()
 local txe = loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Gui.lua"))()
 if shared.snwls:CheckLocalWhitelisted() then
