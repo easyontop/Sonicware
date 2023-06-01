@@ -11,4 +11,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/m
 
 # Roblox Bedwars
 ### We do not provide roblox bedwars exploit to prevent my main get banned for creating those. When you use vape, make sure not to add Sonicware in autotoxic. THIS IS NOT MY FAULT!!! 
-### > If we detected vape is injected, we will auto report you to a webhook for my main to report.
+### > If we detected suspicious actions, whitelisted user will get notified.
