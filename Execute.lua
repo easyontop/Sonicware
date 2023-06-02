@@ -39,7 +39,7 @@ end
 shared.drag = drag
 local delfile = delfile or function(x) return writefile(x, "") end
 local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport or fluxus and fluxus.queue_on_teleport or function(x) end
-assert(not KA_L, "Sonicware Already Injected!")
+assert(not KA_L, shared.GUI:CreateNotification("error", "Sonicware Already Injected!", 5))
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Execute.lua"))()')
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Spec.lua"))()
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Cmd.lua"))()
@@ -53,6 +53,7 @@ local suc, res = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
 end)
 if not suc or res == "404: Not Found" then return shared.GUI:CreateNotification("warning", "No Scripts are avaliable for this game. Sorry for the inconvenience.", 20) end
+shared.GUI:CreateNotification("info", "Loading Scripts...", 4)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
 shared.GUI:CreateNotification("success", "Sonicware Loaded :D", 3)
 local RainbowLogo = Instance.new("ScreenGui")
