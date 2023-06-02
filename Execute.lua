@@ -39,7 +39,8 @@ end
 shared.drag = drag
 local delfile = delfile or function(x) return writefile(x, "") end
 local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport or fluxus and fluxus.queue_on_teleport or function(x) end
-assert(not KA_L, shared.GUI:CreateNotification("error", "Sonicware Already Injected!", 5))
+assert(not KA_L, "Sonicware Already Injected!")
+getgenv().KA_L = true
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Execute.lua"))()')
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Spec.lua"))()
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Cmd.lua"))()
@@ -48,7 +49,6 @@ local txe = loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop
 if shared.snwls:CheckLocalWhitelisted() then
   shared.GUI:CreateNotification("info", "Congratulations 🎊 You are whitelisted!")
 end
-getgenv().KA_L = true
 local suc, res = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
 end)
