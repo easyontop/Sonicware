@@ -1,5 +1,4 @@
--- Blox Fruits
-repeat task.wait() until game:IsLoaded()
+
 shared.GUI:CreateNotification("success", "Loading Zamex Hub - Sonicware", 5)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))() -- Auto Load Modules
 --[[
