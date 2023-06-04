@@ -411,21 +411,6 @@ function lib:CreateNotification(typw, message, duration)
   tweenService:Create(Notification.bar, x, {
       Size = UDim2.new(1, 0,0.05, 0)
   }):Play()
-  local x = Notification.InputBegan:Connect(
-    function(i)
-      if i.UserInputType == Enum.UserInputType.MouseButton1 then
-        x:Disconnect()
-        tweenService:Create(Notification.Filler, n, {
-          Size = UDim2.new(1, 0,1, 0)
-        }):Play()
-        tweenService:Create(Notification, n, {
-          Size = UDim2.new(0, 0,0.087, 0)
-        }):Play()
-        task.wait(.2)
-        Notification:Destroy()
-      end
-    end
-  )
   task.wait(duration)
   x:Disconnect()
   tweenService:Create(Notification.Filler, n, {
