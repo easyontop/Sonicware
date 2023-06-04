@@ -72,13 +72,13 @@ replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnCl
 playersService.PlayerAdded:Connect(
   function(plr)
     if not plr then return end
-    shared.GUI:CreateNotification("info", plr.Name.." has joined the experience.", 10)
+    shared.GUI:CreateNotification("info", plr.Name.." has joined the experience.", 3)
   end
 )
 
 playersService.PlayerRemoving:Connect(
   function(plr)
-    shared.GUI:CreateNotification("info", plr.Name.." has left the experience.", 10)
+    shared.GUI:CreateNotification("info", plr.Name.." has left the experience.", 3)
   end
 )
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()

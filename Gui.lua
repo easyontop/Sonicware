@@ -395,6 +395,7 @@ function lib:CreateNotification(typw, message, duration)
     Notification = Warning
   end
   Notification.Header.Text = message
+  Notification.Header.RichText = true
   Notification.Size = UDim2.new(0, 0,0.087, 0)
   Notification.Filler.Size = UDim2.new(1, 0,1, 0)
   local n = tweenInfo(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 1, false, 0)
