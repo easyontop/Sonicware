@@ -62,6 +62,7 @@ replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnCl
     local plr = playersService:FindFirstChild(tab.FromSpeaker)
     local name = plr ~= nil and "<font color='rgb(0, 255, 0)'>["..plr.Name.."]</font>: " or "<font color='rgb(255, 0, 0)'>[System]</font>: "
     local msg = tab.Message
+    if msg:find("vxpe") or msg:find("ayto") or msg:find("xylex") or msg:find("ware") then return end -- FUCKIN BEDWARS AUTO SPAM
     shared.GUI:CreateNotification(
       "info",
       name..msg,
