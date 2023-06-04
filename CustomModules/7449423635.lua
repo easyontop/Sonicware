@@ -10,7 +10,7 @@ replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnCl
     local msg = tab.Message
     shared.GUI:CreateNotification(
       "info",
-      (tab.MessageType == "Whisper" and "DM: "..name or name)..msg,
+      name..msg,
       string.len(msg)*0.2 > 5 and string.len(msg)*0.2 or 5
     )
   end
