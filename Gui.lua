@@ -421,5 +421,4 @@ function lib:CreateNotification(typw, message, duration)
   task.wait(.2)
   Notification:Destroy()
 end
-
 shared.GUI = lib
