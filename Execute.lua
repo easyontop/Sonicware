@@ -1,5 +1,4 @@
 repeat task.wait() until game:IsLoaded()
-
 local isfile = isfile or function (x)
   local suc, res = pcall(function() return readfile(x) end)
   return suc and res ~= nil
@@ -13,7 +12,6 @@ local function drag(frame, parent)
   local dragging = false
   local dragInput, mousePos, framePos
   frame.InputBegan:Connect(function(input)
-      if not parent.Visible then return end
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
       dragging = true
       mousePos = input.Position
@@ -26,14 +24,12 @@ local function drag(frame, parent)
     end
   end)
   frame.InputChanged:Connect(function(input)
-      if not parent.Visible then return end
     if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
       dragInput = input
     end
   end)
   input.InputChanged:Connect(function(input)
     if input == dragInput and dragging then
-        if not parent.Visible then return end
       local delta = input.Position - mousePos
       parent.Position  = UDim2.new(framePos.X.Scale, framePos.X.Offset + delta.X, framePos.Y.Scale, framePos.Y.Offset + delta.Y)
     end
@@ -56,10 +52,7 @@ end
 local suc, res = pcall(function()
   return game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua")
 end)
---for i, v in pairs(shared.GUI.ObjectsThatCanBeSaved) do
---  if not v:lower():find("window") then return end
---  pcall(function() v.Api.Toggle(false) end)
---end
+
 if not suc or res == "404: Not Found" then return shared.GUI:CreateNotification("warning", "No Scripts are avaliable for this game. Sorry for the inconvenience.", 20) end
 shared.GUI:CreateNotification("info", "Loading Scripts...", 4)
 local replicatedStorageService = game:GetService("ReplicatedStorage")
