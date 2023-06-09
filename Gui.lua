@@ -459,6 +459,7 @@ Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.0215053782, 0, 0.0423076935, 0)
 Main.Size = UDim2.new(0.140000001, 0, 0.449999988, 0)
 Main.Visible = false
+shared.drag(Main)
 UICorner.CornerRadius = UDim.new(0, 4)
 UICorner.Parent = Main
 UIListLayout.Parent = Main
@@ -482,6 +483,30 @@ Sep.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
 Sep.BackgroundTransparency = 0.600
 Sep.BorderSizePixel = 0
 Sep.Size = UDim2.new(1, 0, 0.00999999978, 0)
+local ToggleUI = Instance.new("TextButton")
+ToggleUI.Name = "ToggleUI"
+ToggleUI.Parent = ScreenGui
+ToggleUI.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ToggleUI.BackgroundTransparency = 0.400
+ToggleUI.BorderSizePixel = 0
+ToggleUI.Position = UDim2.new(0.9195503, 0, 0.0673076957, 0)
+ToggleUI.Size = UDim2.new(0.0799999982, 0, 0.0500000007, 0)
+ToggleUI.Font = Enum.Font.FredokaOne
+ToggleUI.Text = "Sonicware"
+ToggleUI.TextColor3 = Color3.fromRGB(200, 200, 200)
+ToggleUI.TextSize = 14.000
+local function PHNSHGK_fake_script() -- ToggleUI.LocalScript 
+	local script = Instance.new('LocalScript', ToggleUI)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		for i, v in pairs(script.Parent.Parent:GetChildren()) do
+			if v:IsA("Frame") then
+				pcall(function() v.Visible = not v.Visible end)
+			end
+		end
+	end)
+end
+coroutine.wrap(PHNSHGK_fake_script)()
 lib["MainGui"] = ScreenGui
 lib["ObjectsThatCanBeSaved"] = {}
 function lib:CreateWindow(title)

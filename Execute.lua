@@ -13,6 +13,7 @@ local function drag(frame, parent)
   local dragging = false
   local dragInput, mousePos, framePos
   frame.InputBegan:Connect(function(input)
+      if not parent.Visible then return end
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
       dragging = true
       mousePos = input.Position
@@ -25,12 +26,14 @@ local function drag(frame, parent)
     end
   end)
   frame.InputChanged:Connect(function(input)
+      if not parent.Visible then return end
     if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
       dragInput = input
     end
   end)
   input.InputChanged:Connect(function(input)
     if input == dragInput and dragging then
+        if not parent.Visible then return end
       local delta = input.Position - mousePos
       parent.Position  = UDim2.new(framePos.X.Scale, framePos.X.Offset + delta.X, framePos.Y.Scale, framePos.Y.Offset + delta.Y)
     end
