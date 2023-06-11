@@ -23,12 +23,15 @@ rm("Fly")
 rm("Atmosphere")
 rm("AutoClicker")
 rm("Speed")
+rm("TriggerBot")
+rm("AutoReport")
 -- Others I forgot lol
-local LoadBuild = btn("Utility", {
+local LoadBuild = btn("Utility", 
+  {
     Enabled = false,
     Name = "LoadBuild",
     HoverText = "Load your build from auto save",
-    Function = function(tg)
+    ["Function"] = function(tg)
         if not tg then return end
         replicatedStorageService:WaitForChild("ClientServerRemotes"):WaitForChild("LoadBuild"):FireServer(unpack({
               [1] = "Autosave"
@@ -36,4 +39,25 @@ local LoadBuild = btn("Utility", {
         notify("LoadBuild", "Loaded.", 4)
         LoadBuild.ToggleButton(false)
     end
+  }
+)
+local AutoTeddy = btn("Utility", {
+    Enabled = false,
+    Name = "AutoGrabTeddyBear",
+    HoverText = "Auto teleport you ti teddy bears.",
+    ["Function"] = function(tg)
+      notify("AutoGrabTeddyBear", tg and "Enabled" or "Disabled", 5, true)
+    end
 })
+
+while wait(1) do 
+  if not lplr.Team then return end
+  for i, v in pairs(workspace.Plots[tostring(lplr.Team.TeamColor)].Collectables) do
+    if v.Name ~= "teddy" then return end
+    pcall(
+      function()
+        lplr.Character.HumanoidRootPart.Position = teddy.PrimaryPart.Position
+      end
+    )
+  end
+end
