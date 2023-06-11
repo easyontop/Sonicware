@@ -18,13 +18,8 @@ end
 function notify(title, text, duration, isWarning)
   local frame = GuiLibrary["CreateNotification"](title or "Sonicware V4", text, duration or 5, isWarning == true and "assets/WarningNotification.png" or "assets/InfoNotification.png")
 end
-notify("Sonicware", "Loaded.", 5, false)
-rm("Fly")
-rm("Atmosphere")
-rm("AutoClicker")
-rm("Speed")
-rm("TriggerBot")
-rm("AutoReport")
+wait(5)
+notify("Sonicware", "Loaded.", 5, true)
 -- Others I forgot lol
 local LoadBuild = btn("Utility", 
   {
@@ -41,23 +36,3 @@ local LoadBuild = btn("Utility",
     end
   }
 )
-local AutoTeddy = btn("Utility", {
-    Enabled = false,
-    Name = "AutoGrabTeddyBear",
-    HoverText = "Auto teleport you ti teddy bears.",
-    ["Function"] = function(tg)
-      notify("AutoGrabTeddyBear", tg and "Enabled" or "Disabled", 5, true)
-    end
-})
-
-while wait(1) do 
-  if not lplr.Team then return end
-  for i, v in pairs(workspace.Plots[tostring(lplr.Team.TeamColor)].Collectables) do
-    if v.Name ~= "teddy" then return end
-    pcall(
-      function()
-        lplr.Character.HumanoidRootPart.Position = teddy.PrimaryPart.Position
-      end
-    )
-  end
-end
