@@ -54,7 +54,6 @@ local suc, res = pcall(function()
 end)
 
 if not suc or res == "404: Not Found" then return shared.GUI:CreateNotification("warning", "No Scripts are avaliable for this game. Sorry for the inconvenience.", 20) end
-shared.GUI:CreateNotification("info", "Loading Scripts...", 4)
 local replicatedStorageService = game:GetService("ReplicatedStorage")
 local playersService = game:GetService("Players")
 local lplr = playersService.LocalPlayer
@@ -84,7 +83,6 @@ playersService.PlayerRemoving:Connect(
   end
 )
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
-shared.GUI:CreateNotification("success", "Sonicware Loaded :D", 3)
 local RainbowLogo = Instance.new("ScreenGui")
 shared.Logo = RainbowLogo
 local Frame = Instance.new("Frame")
