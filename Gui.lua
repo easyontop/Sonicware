@@ -682,6 +682,7 @@ end
 coroutine.wrap(JVBID_fake_script)()
 local MenuList = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
+MenuList.Name = "MenuList"
 MenuList.Parent = Main
 MenuList.Active = true
 MenuList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -698,7 +699,7 @@ local Items = {}
 lib["ObjectsThatCanBeSaved"] = {}
 lib["CreateWindow"] = function(title)
   local TextButton = Instance.new("TextButton", MenuList)
-  local UICorner = Instance.new("UICorner", TextButton)
+  local UICorner = Instance.new("UICorner")
   TextButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
   TextButton.BorderSizePixel = 0
   TextButton.Position = UDim2.new(0.138186708, 0, 0.295857996, 0)
@@ -709,6 +710,7 @@ lib["CreateWindow"] = function(title)
   TextButton.TextWrapped = true
   TextButton.Text = title
   UICorner_5.CornerRadius = UDim.new(0, 50)
+  UICorner_5.Parent = TextButton
   local ScrollingFrame = Instance.new("ScrollingFrame", Main)
   TextButton.MouseButton1Click:Connect(function() ScrollingFrame.Visible = not ScrollingFrame.Visible end)
   local UIListLayout_2 = Instance.new("UIListLayout")
