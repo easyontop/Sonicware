@@ -696,8 +696,8 @@ UIListLayout.FillDirection = Enum.FillDirection.Horizontal
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0.05, 0)
 local Items = {}
-shared["ObjectsThatCanBeSaved"] = {}
-shared["CreateWindow"] = function(title)
+lib["ObjectsThatCanBeSaved"] = {}
+lib["CreateWindow"] = function(title)
   local TextButton = Instance.new("TextButton")
   local UICorner = Instance.new("UICorner")
   TextButton.Parent = MenuList
@@ -744,14 +744,14 @@ shared["CreateWindow"] = function(title)
       TextButton_2.TextSize = 14.000
       TextButton_2.Text = name
       TextButton_2.MouseButton1Click:Connect(function() cb() end)
-      shared.ObjectsThatCanBeSaved[title.."Window"][name.."Button"] = TextButton_2
+      lib.ObjectsThatCanBeSaved[title.."Window"][name.."Button"] = TextButton_2
       return {
-        ["Remove"] = function() TextButton_2:Destroy() shared.ObjectsThatCanBeSaved[title.."Window"][name.."Button"] = nil end,
+        ["Remove"] = function() TextButton_2:Destroy() lib.ObjectsThatCanBeSaved[title.."Window"][name.."Button"] = nil end,
         ["EditText"] = function(nt) TextButton_2.Text = nt end,
       }
     end,
   }
-  shared.ObjectsThatCanBeSaved[title.."Window"] = FUWS
+  lib.ObjectsThatCanBeSaved[title.."Window"] = FUWS
   return FUWS
 end
 
