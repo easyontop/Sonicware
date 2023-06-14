@@ -9,6 +9,7 @@ local pl = game:GetService("Players")
 local plr = pl.LocalPlayer
 local ocf
 local oct = {}
+pcall(function() 
 if getconnections then
   for i, v in pairs(getconnections(rs.DefaultChatSystemChatEvents.OnNewMessage.OnClientEvent)) do
     if
@@ -56,3 +57,4 @@ if getconnections then
     end
   end
 end
+end)
