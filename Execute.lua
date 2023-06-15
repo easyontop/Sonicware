@@ -38,7 +38,11 @@ end
 shared.drag = drag
 local delfile = delfile or function(x) return writefile(x, "") end
 local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport or fluxus and fluxus.queue_on_teleport or function(x) end
-assert(not KA_L, "Sonicware Already Injected!")
+if KA_L == true or getgenv().KA_L == true then
+  if not shared.GUI then return end
+  shared.GUI:CreateNotification("error", "Sonicware Already Injected!", 15)
+  return
+end
 getgenv().KA_L = true
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Execute.lua"))()')
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Spec.lua"))()
