@@ -9,8 +9,7 @@ local plr = pl.LocalPlayer
 local playersService = game:GetService("Players")
 local textChatService = game:GetService("TextChatService")
 local versiox = textChatService.ChatVersion
-local isnew = versiox == Enum.ChatVersion.TextChatService and true or false
-if isnew == false then
+pcall(function()
   local ocf
   local oct = {}
   if getconnections then
@@ -54,7 +53,8 @@ if isnew == false then
       end
     end
   end
-else
+end)
+pcall(function()
   textChatService.OnIncomingMessage = function(message)
     if not message.TextSource then return end
     local x = playersService:GetPlayerByUserId(message.TextSource.UserId)
@@ -68,4 +68,4 @@ else
       return props
     end
   end
-end
+end)
