@@ -54,18 +54,3 @@ pcall(function()
     end
   end
 end)
-pcall(function()
-  textChatService.OnIncomingMessage = function(message)
-    if not message.TextSource then return end
-    local x = playersService:GetPlayerByUserId(message.TextSource.UserId)
-    local props = Instance.new("TextChatMessageProperties")
-    if not x then return end
-    if not xs[tostring(x.UserId)] or not xs[tostring(x.UserId)].tag then
-      return props
-    else
-      props.PrefixText = "<font color=\"rgb("tostring(xs[tostring(x.UserId)]["r"] or 128)..","..tostring(xs[tostring(x.UserId)]["g"] or 0)..","..tostring(xs[tostring(x.UserId)]["b"] or 128).."\")>"..xs[tostring(x.UserId)].tag.."</font> "..message.PrefixText
-      
-      return props
-    end
-  end
-end)
