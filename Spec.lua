@@ -9,6 +9,7 @@ local plr = pl.LocalPlayer
 local playersService = game:GetService("Players")
 local textChatService = game:GetService("TextChatService")
 local versiox = textChatService.ChatVersion
+repeat task.wait() until game:IsLoaded()
 local replicatedStorageService = game:GetService("ReplicatedStorage")
 pcall(function()
   local ocf
