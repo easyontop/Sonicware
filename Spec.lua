@@ -9,7 +9,10 @@ local plr = pl.LocalPlayer
 local playersService = game:GetService("Players")
 local textChatService = game:GetService("TextChatService")
 local versiox = textChatService.ChatVersion
-pcall(function()
+local replicatedStorageService = game:GetService("ReplicatedStorage")
+if replicatedStorageService["DefaultChatSystemChatEvents"] then
+  shared.GUI:CreateNotification("info", "Roblox Legacy Chat Loaded", 10)
+  if not replicatedStorageService.DefaultChatSystemChatEvents.SayMessageRequest then return end
   local ocf
   local oct = {}
   if getconnections then
@@ -53,4 +56,7 @@ pcall(function()
       end
     end
   end
-end)
+else
+  shared.GUI:CreateNotification("info", "Roblox new chat loaded", 10)
+  
+end
