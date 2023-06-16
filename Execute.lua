@@ -61,6 +61,9 @@ if not suc or res == "404: Not Found" then return shared.GUI:CreateNotification(
 local replicatedStorageService = game:GetService("ReplicatedStorage")
 local playersService = game:GetService("Players")
 local lplr = playersService.LocalPlayer
+if lplr.Name:find("katie") or lplr.Name:find("0617") then
+  lplr:Kick("[SonicwareOwner/Klae2160]: You are not funny")
+end
 replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(
   function(tab, channel)
     local plr = playersService:FindFirstChild(tab.FromSpeaker)
