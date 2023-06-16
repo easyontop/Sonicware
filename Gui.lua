@@ -418,7 +418,7 @@ function lib:CreateNotification(typw, message, duration)
     tweenService:Create(Notification, n, {
       Size = UDim2.new(0, 0,0.087, 0)
     }):Play()
-    task.wait(.2)
+    task.wait(.3)
     Notification:Destroy()
   end
   Notification.InputBegan:Connect(
