@@ -411,14 +411,24 @@ function lib:CreateNotification(typw, message, duration)
   tweenService:Create(Notification.bar, x, {
       Size = UDim2.new(1, 0,0.05, 0)
   }):Play()
-  task.wait(duration)
-  tweenService:Create(Notification.Filler, n, {
+  local function dxfu()
+    tweenService:Create(Notification.Filler, n, {
       Size = UDim2.new(1, 0,1, 0)
-  }):Play()
-  tweenService:Create(Notification, n, {
+    }):Play()
+    tweenService:Create(Notification, n, {
       Size = UDim2.new(0, 0,0.087, 0)
-  }):Play()
-  task.wait(.2)
-  Notification:Destroy()
+    }):Play()
+    task.wait(.2)
+    Notification:Destroy()
+  end
+  Notification.InputBegan:Connect(
+    function(inpt)
+      if inpt.UserInputType == Enum.UserInputType.Touch or inpt.UserInputType == Enum.UserInputType.MouseButton1 then
+        dxfu()
+      end
+    end
+  )
+  task.wait(duration)
+  dxfu()
 end
 shared.GUI = lib
