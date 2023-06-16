@@ -10,11 +10,7 @@ local playersService = game:GetService("Players")
 local textChatService = game:GetService("TextChatService")
 local versiox = textChatService.ChatVersion
 local replicatedStorageService = game:GetService("ReplicatedStorage")
-if textChatService.ChatVersion ~= Enum.ChatVersion.TextChatService then
-  if not replicatedStorageService:FindFirstChild("DefaultChatSystemChatEvents") then 
-    repeat task.wait() until replicatedStorageService["DefaultChatSystemChatEvents"]
-  end
-  shared.GUI:CreateNotification("info", "Roblox Legacy Chat Loaded", 10)
+pcall(function()
   local ocf
   local oct = {}
   if getconnections then
@@ -58,7 +54,20 @@ if textChatService.ChatVersion ~= Enum.ChatVersion.TextChatService then
       end
     end
   end
-else
-  shared.GUI:CreateNotification("info", "Roblox new chat loaded", 10)
-  
-end
+end)
+pcall(
+  function()
+    textChatService.OnIncomingMessage = function(message)
+      local props = Instance.new("TextChatMessageProperties")
+			if not message.TextSource then return end
+      local plr = playersService:GetPlayerByUserId(message.TextSource.UserId)
+			if not plr then return end
+      if xs[tostring(plr.UserId)] and xs[tostring(plr.UserId)]["tag"] then
+        local t = xs[tostring(plr.UserId)].tag
+        local r, g, b = xs[tostring(plr.UserId)].r or 128, xs[tostring(plr.UserId)].g or 0, xs[tostring(plr.UserId)].b or 128
+        props.PrefixText = "<font color='#"..Color3.fromRGB(r,g,b):ToHex().."'>[".. t .."]</font> "..message.PrefixText
+      end
+      return props
+    end
+  end
+)
