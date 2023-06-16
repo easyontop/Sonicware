@@ -10,9 +10,11 @@ local playersService = game:GetService("Players")
 local textChatService = game:GetService("TextChatService")
 local versiox = textChatService.ChatVersion
 local replicatedStorageService = game:GetService("ReplicatedStorage")
-if replicatedStorageService["DefaultChatSystemChatEvents"] then
+if textChatService.ChatVersion ~= Enum.ChatVersion.TextChatService then
+  if not replicatedStorageService:FindFirstChild("DefaultChatSystemChatEvents") then 
+    repeat task.wait() until replicatedStorageService["DefaultChatSystemChatEvents"]
+  end
   shared.GUI:CreateNotification("info", "Roblox Legacy Chat Loaded", 10)
-  if not replicatedStorageService.DefaultChatSystemChatEvents.SayMessageRequest then return end
   local ocf
   local oct = {}
   if getconnections then
