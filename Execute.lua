@@ -62,21 +62,38 @@ local replicatedStorageService = game:GetService("ReplicatedStorage")
 local playersService = game:GetService("Players")
 local lplr = playersService.LocalPlayer
 if lplr.Name:find("katie") or lplr.Name:find("0617") then
-  lplr:Kick("[SonicwareOwner/Klae2160]: You are not funny")
+  lplr:Kick("[SonicwareOwner/Klae2160]: You are not funny | I hate ya.")
 end
-replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(
-  function(tab, channel)
-    local plr = playersService:FindFirstChild(tab.FromSpeaker)
-    local name = plr ~= nil and "<font color='rgb(0, 255, 0)'>["..plr.Name.."]</font>: " or "<font color='rgb(255, 0, 0)'>[System]</font>: "
-    local msg = tab.Message
-    if msg:find("vxpe") or msg:find("ayto") or msg:find("xylex") or (msg:find("ware") and not msg:find("sonicware")) then return end -- FUCKIN BEDWARS AUTO SPAM
-    shared.GUI:CreateNotification(
-      "info",
-      name..msg,
-      string.len(msg)*0.2 > 5 and string.len(msg)*0.2 or 5
-    )
-  end
-)
+if replicatedStorageService.DefaultChatSystemChatEvents then
+  replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(
+    function(tab, channel)
+      local plr = playersService:FindFirstChild(tab.FromSpeaker)
+      local name = plr ~= nil and "<font color='rgb(0, 255, 0)'>["..plr.Name.."]</font>: " or "<font color='rgb(255, 0, 0)'>[System]</font>: "
+      local msg = tab.Message
+      --if msg:find("vxpe") or msg:find("ayto") or msg:find("xylex") or (msg:find("ware") and not msg:find("sonicware")) then return end -- FUCKIN BEDWARS AUTO SPAM
+      shared.GUI:CreateNotification(
+        "info",
+        name..msg,
+        string.len(msg)*0.2 > 5 and string.len(msg)*0.2 or 5
+      )
+    end
+  )
+else 
+  game:GetService("TextChatService").MessageReceived:Connect(
+    function(tab)
+      if not tab.TextSource then return end
+      local plrid = tab.TextSource.UserId
+      if not plrid then return end
+      local plr = game:GetService("Players"):GetPlayerByUserId(plrid)
+      local name = plr ~= nil and "<font color='rgb(0, 255, 0)'>["..plr.Name.."]</font>: " or "<font color='rgb(255, 0, 0)'>[System]</font>: " 
+      shared.GUI:CreateNotification(
+        "info",
+        name,
+        string.len(tab.Text) * 0.2 > 5 and string.len(tab.Text) * 0.2 or 5
+      )
+    end
+  )
+end
 playersService.PlayerAdded:Connect(
   function(plr)
     if not plr then return end
