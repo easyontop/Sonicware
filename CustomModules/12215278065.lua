@@ -13,17 +13,15 @@ local team = {
 }
 
 function bxp(x)
-  pcall(function()
-  if not x.Name then return end
-  if x.Name:lower() ~= "teddy" then return end
   pcall(
     function()
+      if x.Name ~= "teddy" then return end
       local a = Instance.new("BoxHandleAdornment")
       a.Name = x.Name.."_PESP"
       a.Parent = x.PrimaryPart
       a.Adornee = x.PrimaryPart
       a.AlwaysOnTop = true
-      a.ZIndex = 0
+      a.ZIndex = 7e9
       a.Size = x.PrimaryPart.Size
       a.Color = BrickColor.new("Lime green")
       local b = Instance.new("BillboardGui")
@@ -32,7 +30,7 @@ function bxp(x)
       b.Parent = x.PrimaryPart
       b.Name = x.Name
       b.AlwaysOnTop = true
-      b.ZIndex = 1
+      b.ZIndex = 8e9
       b.Size = x.PrimaryPart.Size
       b.Transparency = .2
       b.Color = lplr.Team.TeamColor
@@ -47,9 +45,7 @@ function bxp(x)
       c.TextStrokeTransparency = 0
 			c.TextYAlignment = Enum.TextYAlignment.Bottom
 			c.Text = "🐻 Here!"
-		  c.ZIndex = 2
-        end
-      )
+		  c.ZIndex = 9e9
     end
   )
 end
