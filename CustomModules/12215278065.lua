@@ -13,6 +13,8 @@ local team = {
 }
 
 function bxp(x)
+  pcall(function()
+  if not x.Name then return end
   if x.Name:lower() ~= "teddy" then return end
   pcall(
     function()
@@ -46,6 +48,8 @@ function bxp(x)
 			c.TextYAlignment = Enum.TextYAlignment.Bottom
 			c.Text = "🐻 Here!"
 		  c.ZIndex = 2
+        end
+      )
     end
   )
 end
