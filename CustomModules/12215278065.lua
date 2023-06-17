@@ -13,7 +13,7 @@ local team = {
 }
 
 function bxp(x)
-  if x:lower() ~= "teddy" then return end
+  if x.Name:lower() ~= "teddy" then return end
   pcall(
     function()
       local a = Instance.new("BoxHandleAdornment")
