@@ -31,7 +31,7 @@ function bxp(x)
       b.Name = "tedtroll"
       b.AlwaysOnTop = true
       b.ZIndex = 8e9
-      b.Size = UDim2.new(0, 100, 0, 150)
+      b.Size = UDim2.new(0, 150, 0, 200)
       b.Transparency = .2
       b.Color = BrickColor.new("Lime green")
       b.StudsOffset = Vector3.new(0, 1, 0)
@@ -39,13 +39,13 @@ function bxp(x)
       c.Name = "ted"
       c.BackgroundTransparency = 1
       c.Position = UDim2.new(0, 0, 0, -50)
-			c.Size = UDim2.new(0, 100, 0, 100)
-			c.Font = Enum.Font.FredokaOne
-      c.TextColor3 = Color3.new(1, 1, 1)
-      c.TextSize = 20
+			c.Size = UDim2.new(0, 150, 0, 150)
+			c.Font = Enum.Font.Gotham 
+      c.TextColor3 = Color3.fromRGB(255, 255, 255)
+      c.TextSize = 30
       c.TextStrokeTransparency = 0
-			c.TextYAlignment = Enum.TextYAlignment.Bottom
-			c.Text = "🐻 Here!"
+			--c.TextYAlignment = Enum.TextYAlignment.Bottom
+			c.Text = "🐻 Pick me up!"
 		  c.ZIndex = 9e9
     end
   )
