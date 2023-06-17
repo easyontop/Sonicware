@@ -431,7 +431,7 @@ function lib:CreateNotification(typw, message, duration)
   task.wait(duration)
   dxfu()
 end
-
+--[[
 local GUI = Instance.new("ScreenGui", game:GetService("CoreGui"))
 local Loading = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -742,4 +742,5 @@ lib["ObjectsThatCanBeSaved"] = {
     return a
   end
 }
+]]--
 shared.GUI = lib
