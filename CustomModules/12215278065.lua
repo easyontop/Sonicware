@@ -32,7 +32,7 @@ function bxp(x)
       b.AlwaysOnTop = true
       b.ZIndex = 8e9
       b.Size = UDim2.new(0, 150, 0, 200)
-      b.Transparency = .2
+      b.Transparency = .6
       b.Color = BrickColor.new("Lime green")
       b.StudsOffset = Vector3.new(0, 1, 0)
       c.Parent = b
