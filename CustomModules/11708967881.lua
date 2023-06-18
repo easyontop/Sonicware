@@ -29,7 +29,7 @@ GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"]["CreateOptionsButton
     end
   }
 )
-function TP(POS)
+local function TP(POS)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = POS
 end
 _G["at"] = false
@@ -39,7 +39,7 @@ GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"]["CreateOptionsButton
     ["Function"] = function(cb)
       _G["at"] = cb
       while _G["at"] do
-        task.spawn(
+        pcall(
           function() 
             TP(CFrame.new(-94.4807968, 281.926392, -110.089729, -0.0431109145, 4.41078996e-08, -0.999070287, 2.23052012e-08, 1, 4.31864535e-08, 0.999070287, -2.04226573e-08, -0.0431109145))
             wait(0.1)
