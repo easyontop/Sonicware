@@ -11,7 +11,6 @@ local team = {
   Daisy = "Yellow",
   Persimmon = "Red"
 }
-
 function bxp(x)
   pcall(
     function()
@@ -26,7 +25,12 @@ function bxp(x)
       a.Color = BrickColor.new("Lime green")
       a.Transparency = .6
       local b = Instance.new("BillboardGui", x)
-			local c = Instance.new("TextLabel")
+      local frame = Instance.new("Frame", b)
+			frame.Size = UDim2.new(1, 0, 1, 0)
+			frame.BackgroundColor3 = Color3.new(0, 0, 0)
+			frame.BackgroundTransparency = 1
+			--frame.Parent = b
+			local c = Instance.new("TextLabel", frame)
       b.Adornee = x
       --b.Parent = x
       b.Name = "tedtroll"
@@ -36,11 +40,6 @@ function bxp(x)
       b.Transparency = 
       b.Color = BrickColor.new("Lime green")
       b.StudsOffsetWorldSpace = Vector3.new(0, 3, 0)
-      local frame = Instance.new("Frame")
-			frame.Size = UDim2.new(1, 0, 1, 0)
-			frame.BackgroundColor3 = Color3.new(0, 0, 0)
-			frame.BackgroundTransparency = 1
-			frame.Parent = b
       c.Parent = frame
       c.Name = "ted"
       c.BackgroundTransparency = 1
