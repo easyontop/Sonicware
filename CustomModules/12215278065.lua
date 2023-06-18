@@ -21,7 +21,7 @@ function bxp(x)
       a.Parent = x
       a.Adornee = x
       a.AlwaysOnTop = true
-      a.ZIndex = 7e9
+      a.ZIndex = 0
       a.Size = x.Size
       a.Color = BrickColor.new("Lime green")
       local b = Instance.new("BillboardGui")
@@ -30,7 +30,7 @@ function bxp(x)
       b.Parent = x
       b.Name = "tedtroll"
       b.AlwaysOnTop = true
-      b.ZIndex = 8e9
+      b.ZIndex = 10
       b.Size = UDim2.new(0, 150, 0, 200)
       b.Transparency = .6
       b.Color = BrickColor.new("Lime green")
@@ -46,7 +46,7 @@ function bxp(x)
       c.TextStrokeTransparency = 0
 			--c.TextYAlignment = Enum.TextYAlignment.Bottom
 			c.Text = "🐻 Pick me up!"
-		  c.ZIndex = 9e9
+		  c.ZIndex = 10
     end
   )
 end
