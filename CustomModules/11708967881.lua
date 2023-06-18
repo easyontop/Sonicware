@@ -5,7 +5,7 @@ local lplr = playersService.LocalPlayer
 repeat task.wait() until shared.GuiLibrary
 local GuiLibrary = shared.GuiLibrary
 local btn = function(wi, args)
-  GuiLibrary["ObjectsThatCanBeSaved"][wi.."Window"].CreateOptionsButton(
+  GuiLibrary["ObjectsThatCanBeSaved"][wi.."Window"].Api.CreateOptionsButton(
     {
       table.unpack(args),
       Enabled = false
