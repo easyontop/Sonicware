@@ -16,18 +16,18 @@ function bxp(x)
   pcall(
     function()
       if not x.Parent or x.Parent.Name ~= "teddy" then return end
-      local a = Instance.new("BoxHandleAdornment")
+      local a = Instance.new("BoxHandleAdornment", x)
       a.Name = "TED_PESP"
-      a.Parent = x
+      --a.Parent = x
       a.Adornee = x
       a.AlwaysOnTop = true
       a.ZIndex = 0
       a.Size = x.Size
       a.Color = BrickColor.new("Lime green")
-      local b = Instance.new("BillboardGui")
-			local c = Instance.new("TextLabel")
+      local b = Instance.new("BillboardGui", x)
+			local c = Instance.new("TextLabel", b)
       b.Adornee = x
-      b.Parent = x
+      --b.Parent = x
       b.Name = "tedtroll"
       b.AlwaysOnTop = true
       b.ZIndex = 10
@@ -35,7 +35,7 @@ function bxp(x)
       b.Transparency = .6
       b.Color = BrickColor.new("Lime green")
       b.StudsOffset = Vector3.new(0, 1, 0)
-      c.Parent = b
+      --c.Parent = b
       c.Name = "ted"
       c.BackgroundTransparency = 1
       c.Position = UDim2.new(0, 0, 0, -50)
