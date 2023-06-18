@@ -8,8 +8,7 @@ local btn = function(tab, argstable)
     return GuiLibrary["ObjectsThatCanBeSaved"][tab.."Window"]["Api"].CreateOptionsButton(argstable)
 end
 _G["Loop"] = false
-btn(
-  "Utility", {
+GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"]["CreateOptionsButton"]({
     ["Enabled"] = false,
     ["Name"] = "AutoStarFarm",
     ["Function"] = function(callback)
