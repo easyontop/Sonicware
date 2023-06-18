@@ -35,7 +35,8 @@ end
 _G["at"] = false
 GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"]["CreateOptionsButton"](
   {
-    ["Name"] = "Auto Throw",
+    ["Enabled"] = false,
+    ["Name"] = "AutoThrow",
     ["Function"] = function(cb)
       _G["at"] = cb
       while _G["at"] do
