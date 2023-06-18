@@ -64,6 +64,7 @@ local lplr = playersService.LocalPlayer
 if lplr.Name:find("katie") or lplr.Name:find("0617") then
   lplr:Kick("[SonicwareOwner/Klae2160]: You are not funny | I hate ya.")
 end
+--[[
 if replicatedStorageService.DefaultChatSystemChatEvents then
   replicatedStorageService.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(
     function(tab, channel)
@@ -94,6 +95,7 @@ else
     end
   )
 end
+--]]
 playersService.PlayerAdded:Connect(
   function(plr)
     if not plr then return end
