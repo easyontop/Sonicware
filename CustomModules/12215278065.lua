@@ -11,6 +11,7 @@ local team = {
   Daisy = "Yellow",
   Persimmon = "Red"
 }
+
 function bxp(x)
   pcall(
     function()
@@ -25,32 +26,27 @@ function bxp(x)
       a.Color = BrickColor.new("Lime green")
       a.Transparency = .6
       local b = Instance.new("BillboardGui", x)
-      local frame = Instance.new("Frame", b)
-			frame.Size = UDim2.new(1, 0, 1, 0)
-			frame.BackgroundColor3 = Color3.new(0, 0, 0)
-			frame.BackgroundTransparency = 1
-			--frame.Parent = b
-			local c = Instance.new("TextLabel", frame)
+			local c = Instance.new("TextLabel", b)
       b.Adornee = x
       --b.Parent = x
       b.Name = "tedtroll"
       b.AlwaysOnTop = true
       b.ZIndex = 0
-      b.Size = UDim2.new(0, 150, 0, 200)
+      b.Size = UDim2.new(1,0,1,0)
       b.Transparency = 
       b.Color = BrickColor.new("Lime green")
-      b.StudsOffsetWorldSpace = Vector3.new(0, 3, 0)
-      c.Parent = frame
+      b.StudsOffset = Vector3.new(0, 1, 0)
+      --c.Parent = b
       c.Name = "ted"
       c.BackgroundTransparency = 1
-      c.Position = UDim2.new(0, 0, 0, -25)
+      c.Position = UDim2.new(0, 0, 0, 0)
 			c.Size = UDim2.new(0, 150, 0, 150)
 			c.Font = Enum.Font.Gotham 
       c.TextColor3 = Color3.fromRGB(255, 255, 255)
-      c.TextSize = 20
+      c.TextSize = 30
       c.TextStrokeTransparency = 0
 			--c.TextYAlignment = Enum.TextYAlignment.Bottom
-			c.Text = "Pick me up!"
+			c.Text = "🐻 Pick me up!"
 		  c.ZIndex = 10
     end
   )
