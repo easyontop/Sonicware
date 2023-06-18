@@ -4,17 +4,13 @@ repeat task.wait() until game:IsLoaded()
 local lplr = playersService.LocalPlayer
 repeat task.wait() until shared.GuiLibrary
 local GuiLibrary = shared.GuiLibrary
-local btn = function(wi, args)
-  GuiLibrary["ObjectsThatCanBeSaved"][wi.."Window"].Api.CreateOptionsButton(
-    {
-      table.unpack(args),
-      Enabled = false
-    }
-  )
+local btn = function(tab, argstable) 
+    return GuiLibrary["ObjectsThatCanBeSaved"][tab.."Window"]["Api"].CreateOptionsButton(argstable)
 end
 _G["Loop"] = false
 btn(
   "Utility", {
+    ["Enabled"] = false,
     ["Name"] = "AutoStarFarm",
     ["Function"] = function(callback)
       _G['Loop'] = callback
