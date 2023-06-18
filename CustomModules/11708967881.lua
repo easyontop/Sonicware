@@ -19,7 +19,7 @@ GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"]["CreateOptionsButton
         for _, model in ipairs(starsFolder) do
 					if model:IsA("Model") then
 						local part = model:FindFirstChildWhichIsA("BasePart")
-						if part then
+						if part and part.BrickColor ~= BrickColor.new("CGA brown") then
 							gamed.CFrame = CFrame.new(part.Position)
 						end
 					end
