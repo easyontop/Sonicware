@@ -23,7 +23,7 @@ local btn = function(tab, argstable)
 end
 local replicatedStorageService = game:GetService("ReplicatedStorage")
 local TeddyBearESP = { ["Enabled"] = gs.TeddyBearESP or false }
-TeddyBearESP = btn("Render", {
+TeddyBearESP = GuiLibrary["ObjectsThatCanBeSaved"]["RenderWindow"]["Api"]["CreateOptionsButton"]({
     ["Name"] = "TeddyBearESP",
     ["HoverText"] = "Render the teddy bear part through walls",
     ["Function"] = function(cb)
