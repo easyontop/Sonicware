@@ -44,6 +44,8 @@ if KA_L == true or getgenv().KA_L == true then
   return
 end
 getgenv().KA_L = true
+if not isfolder("Sonicware") then makefolder("Sonicware") end
+if not isfolder("Sonicware/Profiles") then makefolder("Sonicware/Profiles") end
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Execute.lua"))()')
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Spec.lua"))()
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Cmd.lua"))()
@@ -108,6 +110,15 @@ playersService.PlayerRemoving:Connect(
     shared.GUI:CreateNotification("info", plr.Name.." has left the experience.", 3)
   end
 )
+local Settings 
+if not isfile("Sonicware/Profiles/"..game.PlaceId..".json") then writefile("Sonicware/Profiles/"..game.PlaceId..".json", {}) Settings = {} 
+else
+  Settings = readfile("Sonicware/Profiles/"..game.PlaceId..".json")
+end
+shared.gs = Settings
+shared.SaveSettings = function(data)
+  writefile("Sonicware/Profiles/"..game.PlaceId..".json", data)
+end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/CustomModules/"..game.PlaceId..".lua"))()
 local RainbowLogo = Instance.new("ScreenGui")
 shared.Logo = RainbowLogo

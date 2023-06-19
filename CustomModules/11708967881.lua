@@ -4,6 +4,7 @@ repeat task.wait() until game:IsLoaded()
 local lplr = playersService.LocalPlayer
 repeat task.wait() until shared.GuiLibrary
 local GuiLibrary = shared.GuiLibrary
+shared.GuiLibrary.MainBlur.Size = 0
 local btn = function(tab, argstable) 
     return GuiLibrary["ObjectsThatCanBeSaved"][tab.."Window"]["Api"].CreateOptionsButton(argstable)
 end
