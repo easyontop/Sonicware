@@ -111,7 +111,7 @@ playersService.PlayerRemoving:Connect(
   end
 )
 local Settings 
-if not isfile("Sonicware/Profiles/"..game.PlaceId..".json") then writefile("Sonicware/Profiles/"..game.PlaceId..".json", {}) Settings = {} 
+if not isfile("Sonicware/Profiles/"..game.PlaceId..".json") then writefile("Sonicware/Profiles/"..game.PlaceId..".json", "{}") Settings = {} 
 else
   Settings = readfile("Sonicware/Profiles/"..game.PlaceId..".json")
 end
