@@ -10,7 +10,7 @@ end
 local httpService = game:GetService("HttpService")
 local gs = httpService:JSONDecode(shared.gs or {})
 while wait(1) do
-  shared.SaveSettings(httpService:JSONEncode(gs))
+  shared.SaveSettings(httpService:JSONEncode(gs) ~= "[]" and httpService:JSONEncode(gs) or "{}")
 end
 local playersService = game:GetService("Players")
 repeat task.wait() until game:IsLoaded()
@@ -22,8 +22,9 @@ local btn = function(tab, argstable)
     return GuiLibrary["ObjectsThatCanBeSaved"][tab.."Window"]["Api"]["CreateOptionsButton"](argstable)
 end
 local replicatedStorageService = game:GetService("ReplicatedStorage")
-local TeddyBearESP = { ["Enabled"] = gs.TeddyBearESP or false }
+local TeddyBearESP
 TeddyBearESP = GuiLibrary["ObjectsThatCanBeSaved"]["RenderWindow"]["Api"]["CreateOptionsButton"]({
+    ["Enabled"] = gs.TeddyBearESP or false,
     ["Name"] = "TeddyBearESP",
     ["HoverText"] = "Render the teddy bear part through walls",
     ["Function"] = function(cb)
