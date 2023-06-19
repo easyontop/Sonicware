@@ -412,6 +412,7 @@ function lib:CreateNotification(typw, message, duration)
       Size = UDim2.new(1, 0,0.05, 0)
   }):Play()
   local function dxfu()
+    pcall(function()
     tweenService:Create(Notification.Filler, n, {
       Size = UDim2.new(1, 0,1, 0)
     }):Play()
@@ -420,6 +421,7 @@ function lib:CreateNotification(typw, message, duration)
     }):Play()
     task.wait(.3)
     Notification:Destroy()
+      end)
   end
   Notification.InputBegan:Connect(
     function(inpt)
