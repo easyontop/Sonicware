@@ -15,25 +15,14 @@ end
 local playersService = game:GetService("Players")
 repeat task.wait() until game:IsLoaded()
 local lplr = playersService.LocalPlayer
-repeat task.wait() until shared.GuiLibrary
-local GuiLibrary = shared.GuiLibrary
-shared.GuiLibrary.MainBlur.Size = 0
-local btn = function(tab, argstable) 
-    return GuiLibrary["ObjectsThatCanBeSaved"][tab.."Window"]["Api"]["CreateOptionsButton"](argstable)
-end
+
 local replicatedStorageService = game:GetService("ReplicatedStorage")
-local TeddyBearESP
-TeddyBearESP = GuiLibrary["ObjectsThatCanBeSaved"]["RenderWindow"]["Api"]["CreateOptionsButton"]({
-    ["Enabled"] = gs.TeddyBearESP or false,
-    ["Name"] = "TeddyBearESP",
-    ["HoverText"] = "Render the teddy bear part through walls",
-    ["Function"] = function(cb)
-      gs["TeddyBearESP"] = cb or false
+
       function esp(x)
         pcall(
           function()
             -- Pcall Because Workspace.Camera will throw error
-            if not TeddyBearESP.Enabled then return end
+            --if not TeddyBearESP.Enabled then return end
             if not x.Parent or x.Parent.Name ~= "teddy" then return end
             local esp = Instance.new("BoxHandleAdornment")
             esp.Name = "SonicwareEspForTeddy"
@@ -51,5 +40,4 @@ TeddyBearESP = GuiLibrary["ObjectsThatCanBeSaved"]["RenderWindow"]["Api"]["Creat
   task.spawn(function() esp(v) end)
 end
         workspace.DescendantAdded:Connect(function(v) task.spawn(function() esp(v) end) end)
-    end
-})
+
