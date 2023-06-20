@@ -48,7 +48,7 @@ if not isfolder("Sonicware") then makefolder("Sonicware") end
 if not isfolder("Sonicware/Profiles") then makefolder("Sonicware/Profiles") end
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Execute.lua"))()')
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Spec.lua"))()
---loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Cmd.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/cmd.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Wls.lua"))()
 local txe = loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/Gui.lua"))()
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/easyontop/Sonicware/main/AntiToxic.lua"))()

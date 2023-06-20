@@ -28,6 +28,14 @@ local gay = game:GetService("HttpService")
 local nolife = gay:JSONDecode(bitch)
 Whitelist.table = nolife
 Whitelist.Loaded = true
+function Whitelist:Pos(plr)
+  if not plr or not plr.UserId then return end
+  local pt = "DEFAULT"
+  if Whitelist.table[tostring(plr.UserId)] then
+    local oi = Whitelist.table[tostring(plr.UserId)]["pos"] or 2
+  end
+  return oi or 1
+end
 function Whitelist:CheckPlayerType(plr)
   if not plr or not plr.UserId then return end
   local pt = "DEFAULT"
