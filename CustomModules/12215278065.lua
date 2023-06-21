@@ -1,17 +1,4 @@
 -- Toy Solider Z
-pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))() end)
-local isfile = isfile or function(x)
-  local d, f = pcall(function() return readfile(x) end)
-  return d and f ~= nil
-end
-local delfile = delfile or function(x)
-  writefile(x, "")
-end
-local httpService = game:GetService("HttpService")
-local gs = httpService:JSONDecode(shared.gs or {})
-while wait(1) do
-  shared.SaveSettings(httpService:JSONEncode(gs) ~= "[]" and httpService:JSONEncode(gs) or "{}")
-end
 local playersService = game:GetService("Players")
 repeat task.wait() until game:IsLoaded()
 local lplr = playersService.LocalPlayer
