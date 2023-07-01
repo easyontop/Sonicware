@@ -67,6 +67,8 @@ function Whitelist:CheckLocalWhitelisted()
   end
 end
 
+shared.SonicwarePrivate = Whitelist:CheckLocalWhitelisted()
+
 function Whitelist:IsSpecialInGame()
   for i, v in pairs(playersService:GetPlayers()) do
     if Whitelist:CheckWhitelisted(v) == true then
